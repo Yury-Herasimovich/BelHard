@@ -5,6 +5,7 @@ def send_command(command, login, password):
     client_socket.connect(('127.0.0.1', 7772))
     
     message = f"command:{command}; login:{login}; password:{password}"
+    print(f"Отправка: {message}")
     client_socket.send(message.encode('utf-8'))
     
     response = client_socket.recv(4096).decode('utf-8')
