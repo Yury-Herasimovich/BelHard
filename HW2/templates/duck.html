@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duck page</title>
+    <style> 
+        body {
+            background-color: rgba(46, 45, 47, 0.822);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1{
+            color: rgb(249, 217, 12);
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            width: 150px;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        img {
+            max-width: 60%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Bad day? Here's the duck for you!</h1>
+    <h3>Random duck №{{ image_num }} </h3>
+    <!-- <img id="duckImage" src="https://random-d.uk/api/randomimg" alt="Random Duck"> -->
+    <img id="duckImage" src="{{ image_url }}" alt="Random Duck">
+    <div class = "buttons-container"> 
+        <a class="button" href="/duck">Новая утка</a>
+        <a href="/" class="button">Back to Main</a>
+    </div>
+    
+
+    <!-- <script>
+        function newDuck() {
+            const duckImg = document.getElementById('duckImage');
+            // Добавил случайный параметр для предотвращения кеширования, иначе кнопка не грузится
+            const timestamp = new Date().getTime();
+            duckImg.src = `https://random-d.uk/api/randomimg?t=${timestamp}`;
+            
+        }
+    </script> -->
+    
+</body>
+</html>
