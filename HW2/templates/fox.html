@@ -1,14 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Random Foxes</title>
+    <style>
+        body {
+            background-color: rgba(46, 45, 47, 0.822);
+            font-family: Arial, sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .fox-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .fox-item {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .fox-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sheet 2</h1>
-    <p>
-        <a href="/">На главную</a>
-    </p>
+    <h1>Your Random Foxes</h1>
+    
+    <div class="fox-container">
+        {% for fox in foxes %}
+        <div class="fox-item">
+            <img src="{{ fox.url }}" alt="Fox {{ fox.id }}">
+            <p>Fox ID: {{ fox.id }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div>
+        <a href="/" class="button">Back to Main</a>
+        <a href="/fox/{{ foxes|length }}" class="button">Reload</a>
+    </div>
 </body>
 </html>

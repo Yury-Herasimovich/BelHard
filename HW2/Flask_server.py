@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import os
 import requests
+import random
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -22,10 +23,22 @@ def duck_page():
                          image_url=data['url'],
                          image_num=data['url'].split('/')[-1].split('.')[0])
    
-
 @app.route('/fox/')
-def fox_page():
-    return render_template("fox.html")  
+@app.route('/fox/<int:count>')
+def show_foxes(count=1):
+    if count < 1 or count > 10:
+        return "Ошибка: можно запросить только от 1 до 10 лис", 400
+    
+    fox_ids = random.sample(range(1, 123), count)
+    
+    foxes = []
+    for fox_id in fox_ids:
+        foxes.append({
+            'id': fox_id,
+            'url': f'https://randomfox.ca/images/{fox_id}.jpg'
+        })
+    
+    return render_template('fox.html', foxes=foxes)
 
 
 @app.errorhandler(404)
@@ -34,3 +47,6 @@ def page_not_found(error):
 
 
 app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
