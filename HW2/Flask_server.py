@@ -2,11 +2,10 @@ from flask import Flask, render_template
 import os
 import requests
 import random
-from HW2.config import Config
+from config import Config
 
 BASE_DIR = os.path.dirname(__file__)
 API_KEY = Config.OWM_API_KEY
-# API_KEY = '23232775d430e5fe2ac9a9c2cbdb8410'
 
 app = Flask(__name__,
             static_folder=os.path.join(BASE_DIR, 'static') , 

@@ -79,12 +79,11 @@
 <body>
     <div class="view-container">
         <div class="weather-container">
-            {% if h1 == City %}
+            {% if request.path == '/weather/' or request.path == '/weather/city/' %}
                 <h1>⬆️ Enter name of the city in address</h1>
             {% else %}
                 <h1>{{ weather.city }}</h1>
             {% endif %}
-            <p>{{ weather.time }}</p>
         </div>
     
         <div class="temperature">{{ weather.temp }}°C</div>
