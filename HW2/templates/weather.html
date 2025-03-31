@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather in {{weather.city}}</title>
+    <style>
+        body {
+            background-color: rgba(46, 45, 47, 0.822);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            align-items: center;
+            padding: 20px;
+        }
+        p {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .view-container {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            width: 50%;
+            align-content: center;
+            max-width: 600px;
+            min-width: 300px;   
+        }
+
+        .weather-container {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .temperature {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.566);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            width: 120px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="view-container">
+        <div class="weather-container">
+            {% if h1 == City %}
+                <h1>⬆️ Enter name of the city in address</h1>
+            {% else %}
+                <h1>{{ weather.city }}</h1>
+            {% endif %}
+            <p>{{ weather.time }}</p>
+        </div>
+    
+        <div class="temperature">{{ weather.temp }}°C</div>
+            <p>Feels like {{ weather.feels_like }}°C</p>
+            <p>{{ weather.description }}</p>
+            <div class="details">
+                <div class="detail-item">
+                    <p> Humidity</p>
+                    <p>{{ weather.humidity }}%</p>
+                </div>
+                <div class="detail-item">
+                    <p> Wind</p>
+                    <p>{{ weather.wind }} m/s</p>
+                </div>
+            </div>
+        </div>
+    
+        
+    </div>
+    
+
+    <a href="/" class="button"> Main page</a>
+</body>
+</html>
