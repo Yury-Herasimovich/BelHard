@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}Fox page{% endblock %}
+
+{% block content %}
+    <h1>Your Random Foxes</h1>
+    
+    <div class="fox-container">
+        {% for fox in foxes %}
+        <div class="fox-item">
+            <img class="fox-item-img" src="{{ fox.url }}" alt="Fox {{ fox.id }}">
+            <p>Fox ID: {{ fox.id }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div>
+        <a href="/" class="button">Back to Main</a>
+        <a href="/fox/{{ foxes|length }}" class="button">Reload</a>
+    </div>
+
+{% endblock %}
+
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Random Foxes</title>
@@ -55,4 +79,4 @@
         <a href="/fox/{{ foxes|length }}" class="button">Reload</a>
     </div>
 </body>
-</html>
+</html> -->

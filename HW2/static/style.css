@@ -1,0 +1,151 @@
+body {
+    background-color: rgba(46, 45, 47, 0.822);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+a.nav-link {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+}
+
+a.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.section-divider {
+    color: white;
+    text-align: left;
+    width: 100%;
+    margin: 10px 0 5px 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid white;
+}
+
+.duck-page-title-text {
+    color: rgb(249, 217, 12);
+    font: 24px
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 120px;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.fox-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.fox-item {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;         
+    justify-content: center;    
+    text-align: center;  
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    justify-content: center ;
+}
+
+.fox-item-img {
+    width: 100%;
+    border-radius: 5px;
+    justify-content: center ;
+}
+
+.weather-p {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.weather-view-container {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    width: 50%;
+    align-content: center;
+    max-width: 600px;
+    min-width: 300px;   
+}
+
+.weather-container {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.weather-temperature {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.weather-detail-item {
+    background: rgba(255, 255, 255, 0.566);
+    padding: 10px;
+    border-radius: 8px;
+}

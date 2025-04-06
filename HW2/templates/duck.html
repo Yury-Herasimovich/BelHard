@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}Duck page{% endblock %}
+
+{% block content %}
+    <h1 class = "duck-page-title-text">Bad day? Here's the duck for you!</h1>
+    <h3>Random duck №{{ image_num }} </h3>
+    <img id="duckImage" src="{{ image_url }}" alt="Random Duck">
+    <div class = "buttons-container"> 
+        <a class="button" href="/duck">New Duck</a>
+        <a href="/" class="button">Back to Main</a>
+    </div>
+
+{% endblock %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,16 +75,5 @@
         <a href="/" class="button">Back to Main</a>
     </div>
     
-
-    <!-- <script>
-        function newDuck() {
-            const duckImg = document.getElementById('duckImage');
-            // Добавил случайный параметр для предотвращения кеширования, иначе кнопка не грузится
-            const timestamp = new Date().getTime();
-            duckImg.src = `https://random-d.uk/api/randomimg?t=${timestamp}`;
-            
-        }
-    </script> -->
-    
 </body>
-</html>
+</html> -->
