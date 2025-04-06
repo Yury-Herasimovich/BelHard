@@ -8,7 +8,7 @@
     <div class="fox-container">
         {% for fox in foxes %}
         <div class="fox-item">
-            <img class="fox-item-img" src="{{ fox.url }}" alt="Fox {{ fox.id }}">
+            <img class="fox-item-img" src="{{ fox }}" alt="Fox {{ fox.id }}">
             <p>Fox ID: {{ fox.id }}</p>
         </div>
         {% endfor %}

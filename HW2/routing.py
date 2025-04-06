@@ -32,11 +32,14 @@ def fox_page(count=1):
     fox_ids = random.sample(range(1, 123), count)
     
     foxes = []
-    for fox_id in fox_ids:
-        foxes.append({
-            'id': fox_id,
-            'url': f'https://randomfox.ca/images/{fox_id}.jpg'
-        })
+    for i in range(count):
+            res = requests.get('https://randomfox.ca/floof/').json()
+            foxes.append(res['image'])
+    # for fox_id in fox_ids:
+    #     foxes.append({
+    #         'id': fox_id,
+    #         'url': f'https://randomfox.ca/images/{fox_id}.jpg'
+    #     })
     
     return render_template('fox.html', foxes=foxes)
 
