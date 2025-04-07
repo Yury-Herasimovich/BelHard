@@ -10,24 +10,24 @@ class UserRegister(BaseModel):
     
     @field_validator('username')
     def validate_username(cls, v):
-        if not bool(re.fullmatch(r'[а-яА-ЯёЁ\s]+', v)):
-            raise ValueError("Имя должно содержать только русские буквы")
+        if not bool(re.fullmatch(r'[а-яА-ЯёЁa-zA-Z\s]+', v)):
+            raise ValueError("Name must have only letters")
         return v.title()
     
     @field_validator('login')
     def validate_login(cls, v):
-        if not bool(re.fullmatch(r'^[a-zA-Z0-9_]+$', v)):
-            raise ValueError("Логин может содержать только латинские буквы, цифры и подчеркивание")
+        if not bool(re.fullmatch(r'^[a-zA-Z0-9_\s]{3,20}$', v)):
+            raise ValueError("Password must have only latin letters, digits and underscores.")
         return v
     
     @field_validator('password')
     def validate_password(cls, v):
         if len(v) < 8:
-            raise ValueError("Пароль должен быть не менее 8 символов")
+            raise ValueError("Password must have at least 8 symbols")
         if not any(c.isupper() for c in v):
-            raise ValueError("Пароль должен содержать хотя бы одну заглавную букву")
+            raise ValueError("Password must have at least one capital letter")
         if not any(c.isdigit() for c in v):
-            raise ValueError("Пароль должен содержать хотя бы одну цифру")
+            raise ValueError("Password must have at least one digit")
         return v
 
 class UserLogin(BaseModel):

@@ -4,6 +4,7 @@ import re
 import requests
 from flask import Flask, render_template, url_for, redirect, request, flash, session
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 from pydantic import ValidationError
 from pydantic_schemas import UserRegister, UserLogin
 from config import Config
@@ -36,11 +37,12 @@ def get_user_by_login(login: str) -> User:
     return User.query.filter_by(login=login).first()
 
 def create_user(user_data: UserRegister) -> User:
+    hashed_password = generate_password_hash(user_data.password)
     user = User(
         username=user_data.username,
         login=user_data.login,
         email=user_data.email,
-        password=user_data.password,  # позже не забудь захэшировать пароль!
+        password=hashed_password,  # Захэшировал встроенными функциями werkzeug
         age=user_data.age
     )
     db.session.add(user)
@@ -62,7 +64,7 @@ def register():
             user = create_user(user_data)
             session['user_id'] = user.id
             session['username'] = user.username
-            flash('Регистрация прошла успешно!', 'success')
+            flash('Register successfull!', 'success')
             return redirect(url_for('index'))
         except ValidationError as e:
             errors = [err['msg'] for err in e.errors()]
@@ -81,12 +83,12 @@ def login():
                 password=request.form['password']
             )
             user = get_user_by_login(login_data.login)
-            if not user or user.password != login_data.password:
-                errors.append('Неверный логин или пароль')
+            if not user or not check_password_hash(user.password, login_data.password):
+                errors.append('Wrong login or password')
             else:
                 session['user_id'] = user.id
                 session['username'] = user.username
-                flash('Вход выполнен успешно!', 'success')
+                flash('Entry successfull!', 'success')
                 return redirect(url_for('index'))
         except ValidationError as e:
             errors = [err['msg'] for err in e.errors()]
@@ -161,4 +163,4 @@ app.run(debug=True)
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(debug=True)
