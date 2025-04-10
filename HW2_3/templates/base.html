@@ -7,12 +7,7 @@
 <body>
     <nav>
         {% if 'user_id' in session %}
-            <span>Привет, {{ session['username'] }}!</span>
-            <a href="{{ url_for('logout') }}">Выйти</a>
-        {% else %}
-            <a href="{{ url_for('login') }}">Войти</a>
-            <a href="{{ url_for('register') }}">Регистрация</a>
-        {% endif %}
+            <span>Привет!</span>
     </nav>
     
     {% with messages = get_flashed_messages(with_categories=true) %}

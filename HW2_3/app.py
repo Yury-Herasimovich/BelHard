@@ -1,4 +1,3 @@
-import datetime
 import os
 import re
 import requests
@@ -9,6 +8,7 @@ from pydantic import ValidationError
 from pydantic_schemas import UserRegister, UserLogin
 from config import Config
 from weather_scripts import *
+from models import User, db
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -19,19 +19,7 @@ app = Flask(__name__,
 app.config['SECRET_KEY'] = "my secret key - ds;ldks;ldks;ldks"
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.db"
 
-db = SQLAlchemy(app)
-
-class User(db.Model):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer(), primary_key=True)
-    username = db.Column(db.String(), nullable=False)
-    login = db.Column(db.String(), nullable=False, unique=True)
-    email = db.Column(db.String(), nullable=False, unique=True)
-    password = db.Column(db.String(), nullable=False)
-    age = db.Column(db.Integer(), nullable=False)
-
-    def __repr__(self):
-        return f'User {self.username}'
+db.init_app(app)
 
 def get_user_by_login(login: str) -> User:
     return User.query.filter_by(login=login).first()
@@ -158,7 +146,7 @@ def page_not_found(error):
     return '<h1 style="color:red">404. Page does not exist</h1>'
 
 
-app.run(debug=True)
+# app.run(debug=True)
 
 if __name__ == '__main__':
     with app.app_context():
