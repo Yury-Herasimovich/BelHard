@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Карта сокровищ</h2>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='img/Treasure map.jpg') }}" alt="Treasure map image">
+    </div>
+
+    <div class = 'progress-container'>
+        <span>Пройдено: </span> <progress value="70" max="100"></progress>
+    </div>
+    
+{% endblock %}

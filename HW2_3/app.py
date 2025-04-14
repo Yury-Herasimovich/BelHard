@@ -71,6 +71,9 @@ def login():
                 password=request.form['password']
             )
             user = get_user_by_login(login_data.login)
+            print(f"User found: {user}")
+            if user:
+                print(f"Password match: {check_password_hash(user.password, login_data.password)}")
             if not user or not check_password_hash(user.password, login_data.password):
                 errors.append('Wrong login or password')
             else:

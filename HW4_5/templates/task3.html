@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span>Перечень драгоценных камней</span>
+    <table class="table-task3">
+        <thead>
+            <tr>
+                <td></td>
+                <td>2010</td>
+                <td>2012</td>
+                <td>2014</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Сапфиры</td>
+                <td rowspan = '2'> 1483</td>
+                <td>4532</td>
+                <td>6743</td>
+            </tr>
+            <tr>
+                <td>Рубины</td>
+                <td>3835</td>
+                <td>7482</td>
+            </tr>
+            <tr>
+                <td>Алмазы</td>
+                <td>683</td>
+                <td colspan="2">238</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

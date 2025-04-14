@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="task11-container">
+        <form class="task11-form">
+            <div class="form-row">
+                <label>Неделя:</label>
+                <input type="week" class="form-input">
+            </div>
+            <div class="form-row">
+                <label>Дата и время:</label>
+                <input type="datetime-local" class="form-input">
+            </div>
+            <div class="form-row">
+                <label>Месяц:</label>
+                <input type="date" class="form-input">
+            </div>
+            <div class="form-row">
+                <label>Время:</label>
+                <input type="time" class="form-input">
+            </div>
+        </form>
+    </div>
+{% endblock %}

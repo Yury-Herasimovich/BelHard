@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class = 'task12-container'>
+        <h1>Форма заявки на работу в зоопарке</h1>
+        <p><em>Пожалуйста, заполните форму. Обязательные поля помечены <span class="required"></span></em></p>
+
+        <fieldset>
+            <legend>КОНТАКТНАЯ ИНФОРМАЦИЯ</legend>
+            <div class="form-group">
+                <label for="name">Имя <span class="required"></span></label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email <span class="required"></span></label>
+                <input type="email" id="email" required>
+            </div>
+        </fieldset>
+    
+        <fieldset>
+            <legend>ПЕРСОНАЛЬНАЯ ИНФОРМАЦИЯ</legend>
+            <div class="form-group">
+                <label for="age">Возраст <span class="required"></span></label>
+                <input type="number" id="age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Пол</label>
+                <select id="gender">
+                    <option>Женщина</option>
+                    <option>Мужчина</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="qualities">Перечислите личные качества</label>
+                <textarea id="qualities" rows="3"></textarea>
+            </div>
+        </fieldset>
+    
+        <fieldset>
+            <legend>ВЫБЕРИТЕ ВАШИХ ЛЮБИМЫХ ЖИВОТНЫХ</legend>
+            <div class="checkbox-group">
+                <label><input type="checkbox"> Зебра</label>
+                <label><input type="checkbox"> Кошка</label>
+                <label><input type="checkbox"> Анаконда</label>
+                <label><input type="checkbox"> Человек</label>
+                <label><input type="checkbox"> Слон</label>
+                <label><input type="checkbox"> Антилопа</label>
+                <label><input type="checkbox"> Голубь</label>
+                <label><input type="checkbox"> Краб</label>
+            </div>
+        </fieldset>
+    
+        <button type="submit">Отправить информацию</button>
+    </form>
+    </div>
+
+{% endblock %}

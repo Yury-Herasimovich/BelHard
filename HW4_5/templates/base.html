@@ -26,14 +26,25 @@
                 <a class="button" href="/">Регистрация</a>
             </nav>  
         </header>
+
+        <aside class="sidebar">
+            <h3>Все задания</h3>
+            <nav class="sidebar-menu">
+                {% block menu2 %}
+                {% include 'menu.html' %}        
+                {% endblock %}
+            </nav>
+        </aside>
+
         <main class="main">
             {% block content %}
             {% endblock %}
         </main>
-    </div>
         
+        
+    </div>   
     <footer>
-        @ Футер тут
+        @ Супер-крутая IT-контора сына маминой подруги. 
     </footer>
 </body>
 </html>

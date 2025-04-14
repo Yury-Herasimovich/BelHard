@@ -5,9 +5,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav>
+    <nav class="nav">
         {% if 'user_id' in session %}
-            <span>Привет!</span>
+            <span>Привет, {{ session['username'] }}!</span>
+            <a href="{{ url_for('logout') }}" class="button">Log Out</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="button">Log in</a>
+            <a href="{{ url_for('register') }}" class="button">Register</a>
+        {% endif %}
     </nav>
     
     {% with messages = get_flashed_messages(with_categories=true) %}

@@ -5,12 +5,12 @@ body {
 }
 
 .container { 
-    height: 90vh;
+    height: 95vh;
     border: 1px solid #ccc;
     padding: 10px;
     display: grid; 
-    grid-template-columns: 1fr; 
-    grid-template-rows: 100px 3fr 10%; 
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr auto;
     overflow: hidden;
 } 
 
@@ -21,8 +21,69 @@ body {
     border-radius: 15px;
     padding: 15px;
     color: white;
-    margin-bottom: 10px;
     justify-items: center;
+}
+
+.main {
+    display: block;
+    border: 2px solid rgb(112, 169, 245);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 5px 0 0 5px;
+    background-color: white;
+    font-family: "Times New Roman", serif;
+    overflow-y: auto; /* Добавляем прокрутку при необходимости */
+    height: calc(100% - 10px); /* Занимаем всю доступную высоту */
+    box-sizing: border-box;
+}
+
+.sidebar {
+    background-color: white;
+    border: 2px solid rgb(112, 169, 245); 
+    border-radius: 15px;
+    margin: 5px 5px 0px 0px; 
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    color:#000
+}
+
+.sidebar-menu a:hover {
+    background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+    
+    .sidebar {
+        order: 1;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
 .navigation {
@@ -95,32 +156,352 @@ body {
     color: white;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    border: 2px solid rgb(112, 169, 245); 
-    border-radius: 15px;
-    color: #333;
-    padding: 20px; 
-    margin: 20px 0; 
-    background-color: white; 
-}
 
 h1, h3 {
     margin: 0;
     text-align: center;
 }
 
-.poem-h1 {
+.poem-h {
     font-family: "Times New Roman", serif;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .poem-text {
     font-family: "Times New Roman", serif;
     white-space: pre; /* Сохраняет переносы, игнорирует лишние пробелы */
-    line-height: 1.5;
+    line-height: 1.2;
     text-align: left;
+}
+
+.table-task3, table * {
+    border: 1px solid #000;
+}
+
+.table-task3 {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+    border-color: gray;
+    
+}
+
+.table-task3 td {
+    padding: 2px 12px 2px 12px;
+    text-align: center;
+}
+
+.table-task4 {
+    width: 70%;
+    max-width: 300px;
+    border-collapse: collapse;
+}
+
+.table-task4 thead tr {
+    background-color: #9d3939;
+    color: white;
+    font-weight: bold;
+}
+
+.table-task4 td {
+    padding: 2px 12px 2px 12px;
+    text-align: center;
+    border: 0px;
+    
+}
+.table-task4 tr {
+    background-color: #f8f9fa;
+    border-color: #9d3939;
+}
+.table-task4 tr:nth-child(even) {
+    background-color: #cfbc9d;
+}
+
+.table-task5 {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+}
+
+.table-task5 thead tr {
+    background-color: #575757;
+    color: white;
+    font-weight: bold;
+}
+
+.table-task5 tbody td {
+    background-color: #7dbcef;
+}
+
+.table-task5 tbody td:nth-child(even) {
+    background-color: #f4ea80;
+}
+
+.table-task5 tbody td:nth-child(3){
+    text-align: center;
+}
+
+.table-task5 sub, sup {
+    border: none !important;
+    outline: none;
+}
+
+.image-container {
+    display: inline-block;
+    position: relative;
+    width: 40%;
+    padding: 10px 0;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+  .image-container img {
+    width: 100%; /* Картинка занимает всю ширину контейнера */
+    display: block; /* Убираем лишние отступы снизу */
+}
+
+  .progress-container {
+    width: 40%; /* Такая же ширина как у изображения */
+    margin-top: 15px; /* Отступ от картинки */
+    text-align: left; /* Выравнивание по левому краю */
+}
+
+.progress-container span {
+    display: inline-block;
+    width: 80px; /* Фиксированная ширина для текста */
+}
+
+
+/* Задание 7 */
+
+/* Встроенный генератор иконок от Google. Доступ дается по ссылке в HTML */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24
+}
+.task7-container {
+    margin-top: 15px;
+}
+
+.task7-container h1{
+    text-align: left;
+}
+
+
+.table-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+.table-task7 {
+    max-width: 300px;
+    margin: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-collapse: none;
+    border: none;
+}
+
+.table-task7 thead {
+    font-weight: normal;
+}
+
+.table-task7 td {
+    padding: 10px;
+    border: none !important;
+}
+
+.table-task7 a, .table-task7 span {
+    border: none !important;
+}
+
+.table-task7 tbody td:nth-child(5) {
+    text-align: right;
+    padding-right: 10px;
+    border: none !important;
+  }
+
+.table-task7 tbody td:nth-child(3) {
+    font-weight: bold;
+}
+
+.task9-container {
+    margin-top: 15px;
+    width: fit-content; /* Ширина по содержимому */
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.task9-container h3 {
+    text-align: left;
+    width: 100%;
+    padding-left: 40px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.task9-poem-text {
+    font-family: "Times New Roman", serif;
+    white-space: pre-line;
+    text-align: left;
+    padding-left: 40px;
+    margin: 0;
+    text-indent: -20px;
+    padding-right: 20px;
+}
+.task10-container {
+    margin: 15px;
+    display: inline-block;
+    border: 2px solid #dfae53;
+    padding: 10px 100px 30px 10px;
+    background-color: rgba(253, 253, 242, 0.973);
+}
+
+.task10-container h1 {
+    text-align: left;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#705013;
+}
+
+.task10-container h2 {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.task10-container h3 {
+    text-align: left;
+    padding-bottom: 30px;
+    color:#dbac53;
+}
+
+.task10-container a {
+    color:#3b7c15;
+}
+
+/* .task11-container {
+    display:flex;
+    flex-direction: column;
+} */
+
+
+.task11-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+.task11-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+}
+
+.form-row label {
+    width: 120px;
+    text-align: right;
+    padding-right: 15px;
+    font-weight: bold;
+}
+
+.form-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+/* Для одинаковой ширины всех input */
+input[type="week"],
+input[type="datetime-local"], 
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    height: 38px;
+}
+
+.task12-container {
+    width: 100%;
+    max-width: 1000px;
+    font-family: Arial, sans-serif;
+    margin: 0 auto; /* Центрирование контейнера */
+    box-sizing: border-box;
+    
+}
+
+.required::after {
+    content: " *";
+    color: red;
+}
+
+.task12-container h1 {
+    text-align: left;
+}
+
+.task12-container fieldset {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #5f5f5f;
+}
+
+.task12-container legend {
+    font-size: 16px;
+}
+
+.task12-container form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 150px 300px;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.form-group label {
+    margin: 0;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px 20px;
+    padding-top: 10px;
+    /* grid-template-rows: 50px 50px; */
+}
+
+.required {
+    color: red;
+}
+
+.task12-container button {
+    padding: 10px 20px;
+    font-size: 16px;
 }

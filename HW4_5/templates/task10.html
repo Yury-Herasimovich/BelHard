@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class = 'task10-container'>
+        <h1>Заголовок первого уровня</h1>
+        <h2>Заголовок второго уровня</h2>
+        <h3>Заголовок третьего уровня</h3>
+        <span>Пример ссылки <a href="{{ url_for('show_task', task_number=random_task) }}">ведущей на другую страницу </a></span>
+    </div>
+
+{% endblock %}
