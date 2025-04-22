@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квизы</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
+</head>
+<body>
+    
+    <header >      
+        <nav>
+            <ul class="main-menu">
+                {% block main_menu %}
+                <li><a href="/quiz/">КВИЗ</a></li>
+                {% endblock %}
+            </ul>
+        </nav> 
+        
+    </header>         
+    
+    <main>
+
+        <section class="info">
+            {% block content1_head %}
+                <h2>Добро пожаловать в игру-квиз!</h2>
+                <h2>Выберите вариант квиза и постарайтесь ответить правильно на вопросы</h2>
+            {% endblock %}
+            
+            {% block content1 %}
+                
+            {% endblock %}
+        </section>
+        
+        
+        <section class="content">   
+
+            {% block content2_head %}
+                
+            {% endblock %}
+            
+        
+            {% block content2 %}
+            {% endblock %}
+        
+    </section>
+    </main>  
+    
+    <footer>Footer</footer> 
+    
+
+    
+</body>
+
+{% if html_config['debug'] %}    
+    <script type="text/javascript">
+        setTimeout("window.location.reload()",2000)
+    </script>
+{% endif %}
+</html>

@@ -1,0 +1,28 @@
+<div class="modal" id="modal2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3>Добавление нового вопроса</h3>
+            <a href="#close" class="btn-close" aria-hidden="true">x</a>
+        </div>
+        <div class="modal-body">
+            
+            <form action="/quizes_view/" method="post">
+                <fieldset>
+                    <legend>Добавьте вопрос</legend>
+                    <textarea  name="question" rows="3" placeholder="Вопрос"></textarea>
+                
+                    <input type="text" name="answer" placeholder="Ответ">
+                    <input type="text" name="wrong1" placeholder="Вариант1">
+                    <input type="text" name="wrong2" placeholder="Вариант2">
+                    <input type="text" name="wrong3" placeholder="Вариант3">
+                    
+                    <input class="button" type="submit" value="OK">
+
+
+                </fieldset>
+                
+            
+            </form>
+        </div>
+    </div>
+</div>
